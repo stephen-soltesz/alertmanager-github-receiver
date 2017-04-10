@@ -1,0 +1,60 @@
+[{
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "DiskRunningFull",
+          "dev": "sda3",
+          "instance": "example4"
+        },
+        "annotations": {},
+        "startsAt": "2017-04-08T23:41:27.802715051Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": ""
+      }
+    ],
+    "groupLabels": {
+      "alertname": "DiskRunningFull"
+    },
+    "commonLabels": {
+      "alertname": "DiskRunningFull",
+      "dev": "sda3",
+      "instance": "example4"
+    },
+    "commonAnnotations": {},
+    "externalURL": "http://7d46bcb9a169:9093",
+    "version": "3",
+    "groupKey": 8092219402457176329
+},
+{
+    "receiver": "webhook",
+    "status": "resolved",
+    "alerts": [
+      {
+        "status": "resolved",
+        "labels": {
+          "alertname": "DiskRunningFull",
+          "dev": "sda3",
+          "instance": "example4"
+        },
+        "annotations": {},
+        "startsAt": "2017-04-08T23:41:27.802715051Z",
+        "endsAt": "2017-04-08T23:46:27.802715051Z",
+        "generatorURL": ""
+      }
+    ],
+    "groupLabels": {
+      "alertname": "DiskRunningFull"
+    },
+    "commonLabels": {
+      "alertname": "DiskRunningFull",
+      "dev": "sda3",
+      "instance": "example4"
+    },
+    "commonAnnotations": {},
+    "externalURL": "http://7d46bcb9a169:9093",
+    "version": "3",
+    "groupKey": 8092219402457176329
+}]
