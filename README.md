@@ -1,4 +1,4 @@
-# github-alertmanager-webook
+# alertmanager-github-receiver
 
 Notes:
 
