@@ -7,7 +7,7 @@ import (
 	"github.com/google/go-github/github"
 	"github.com/kr/pretty"
 	"github.com/prometheus/alertmanager/notify"
-	"github.com/stephen-soltesz/github-alertmanager-webook/issues"
+	"github.com/stephen-soltesz/alertmanager-github-receiver/issues"
 	"io/ioutil"
 	"log"
 	"net/http"
