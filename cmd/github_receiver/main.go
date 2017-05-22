@@ -123,12 +123,35 @@ func id(msg *notify.WebhookMessage) string {
 
 // formatTitle constructs an issue title from a webhook message.
 func formatTitle(msg *notify.WebhookMessage) string {
-	return fmt.Sprintf("[%s] %s\n", id(msg), msg.Data.GroupLabels["alertname"])
+	return fmt.Sprintf("%s\n", msg.Data.GroupLabels["alertname"])
 }
 
 // formatIssueBody constructs an issue body from a webhook message.
 func formatIssueBody(msg *notify.WebhookMessage) string {
-	return fmt.Sprintf("Original alert: %s\nTODO: add graph url from annotations.", msg.ExternalURL)
+	s := "Alerts: \n"
+	for _, alert := range msg.Data.Alerts {
+		if alert.GeneratorURL != "" {
+			s += fmt.Sprintf("GeneratorURL: %s\n", alert.GeneratorURL)
+		}
+		if len(alert.Labels) > 0 {
+			s += "* Labels: \n"
+			for k, v := range alert.Labels {
+				s += fmt.Sprintf("  - %s = %s\n", k, v)
+			}
+		}
+		if len(alert.Annotations) > 0 {
+			s += "* Annotations: \n"
+			for k, v := range alert.Annotations {
+				s += fmt.Sprintf("  - %s = %s\n", k, v)
+			}
+		}
+	}
+	return fmt.Sprintf(`
+<!-- ID: %s -->
+Original alert: %s
+%s
+TODO: add graph url from annotations.`,
+		id(msg), msg.ExternalURL, s)
 }
 
 func serveListener() {
